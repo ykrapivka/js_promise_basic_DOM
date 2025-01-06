@@ -10,7 +10,7 @@ const promise1 = new Promise((resolve, reject) => {
 
 const promise2 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve('Promise was rejected!');
+    reject(new Error('Promise was rejected!'));
   }, 3000);
 });
 
@@ -33,4 +33,4 @@ function onError(data) {
 }
 
 promise1.then(onSuccess);
-promise2.then(onError);
+promise2.catch(onError);
